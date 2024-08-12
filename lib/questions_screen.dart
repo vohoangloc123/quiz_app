@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 class QuestionsScreen extends StatefulWidget {
   const QuestionsScreen({super.key});
@@ -10,6 +11,14 @@ class QuestionsScreen extends StatefulWidget {
 class _QuestionsScreenState extends State<QuestionsScreen> {
   @override
   Widget build(BuildContext context) {
-    return const Text('Question screen');
+    return Center(
+      child: Column(mainAxisSize: MainAxisSize.min, children: [
+        const Text('Question screen'),
+        const SizedBox(
+          height: 30,
+        ),
+        ElevatedButton(onPressed: () {}, child: Text('Answer 1'))
+      ]),
+    );
   }
 }
