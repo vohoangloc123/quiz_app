@@ -35,7 +35,7 @@ class _QuizState extends State<Quiz> {
             Color.fromARGB(255, 10, 209, 200),
             Color.fromARGB(255, 69, 223, 177),
             Color.fromARGB(255, 128, 237, 153),
-          ], begin: startAlignment, end: endAlignment)),
+          ], begin: endAlignment, end: startAlignment)),
           child: activeScreen == 'start-screen'
               ? StartScreen(startQuiz: switchScreen)
               : const QuestionsScreen(),
