@@ -32,7 +32,6 @@ class _QuizState extends State<Quiz> {
     selectedAnswers.add(answer); // Thêm câu trả lời vào danh sách câu trả lời đã chọn
     if (selectedAnswers.length == questions.length) { // Kiểm tra nếu đã chọn câu trả lời cho tất cả các câu hỏi
       setState(() {
-        selectedAnswers=[];
         activeScreen = 'result-screen'; // Cập nhật trạng thái để chuyển sang màn hình bắt đầu hoặc kết thúc
       });
     }
