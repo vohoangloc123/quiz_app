@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:quiz_app/questions_screen.dart';
+import 'package:quiz_app/results_screen.dart';
 import 'package:quiz_app/start_screen.dart';
 
 import 'data/questions.dart';
@@ -26,12 +27,13 @@ class _QuizState extends State<Quiz> {
     });
   }
 
+
   void chooseAnswer(String answer) {
     selectedAnswers.add(answer); // Thêm câu trả lời vào danh sách câu trả lời đã chọn
     if (selectedAnswers.length == questions.length) { // Kiểm tra nếu đã chọn câu trả lời cho tất cả các câu hỏi
       setState(() {
         selectedAnswers=[];
-        activeScreen = 'start-screen'; // Cập nhật trạng thái để chuyển sang màn hình bắt đầu hoặc kết thúc
+        activeScreen = 'result-screen'; // Cập nhật trạng thái để chuyển sang màn hình bắt đầu hoặc kết thúc
       });
     }
   }
@@ -51,7 +53,8 @@ class _QuizState extends State<Quiz> {
           ], begin: endAlignment, end: startAlignment)),
           child: activeScreen == 'start-screen'
               ? StartScreen(startQuiz: switchScreen)
-              : QuestionsScreen(onSelectAnswer: chooseAnswer,),
+              : activeScreen == 'questions-screen' ?QuestionsScreen(onSelectAnswer: chooseAnswer,)
+                : ResultsScreen(),
         ),
       ),
     );
