@@ -26,6 +26,12 @@ class _QuizState extends State<Quiz> {
       activeScreen = 'questions-screen';
     });
   }
+  void resetQuiz() {
+    setState(() {
+      selectedAnswers=[];
+      activeScreen = 'questions-screen';
+    });
+  }
 
 
   void chooseAnswer(String answer) {
@@ -49,7 +55,7 @@ class _QuizState extends State<Quiz> {
           child: activeScreen == 'start-screen'
               ? StartScreen(startQuiz: switchScreen)
               : activeScreen == 'questions-screen' ?QuestionsScreen(onSelectAnswer: chooseAnswer,)
-                : ResultsScreen(chosenAnswers: selectedAnswers,),
+                : ResultsScreen(chosenAnswers: selectedAnswers, onResetQuiz: resetQuiz),
         ),
       ),
     );
