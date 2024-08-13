@@ -27,34 +27,36 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
   @override
   Widget build(BuildContext context) {
     final currentQuestion = questions[currentQuestionIndex]; // 5. Lấy câu hỏi hiện tại dựa trên chỉ số
-    return Center(
-      child: Container(
-        margin: const EdgeInsets.all(40),
-        child: Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              Text(
-                currentQuestion.text, // 6. Hiển thị câu hỏi hiện tại
-                style: GoogleFonts.lato(
-                  fontSize: 24,
-                  color: const Color.fromARGB(255, 127, 219, 243),
-                  fontWeight: FontWeight.bold,
+    return SingleChildScrollView(
+      child: Center(
+        child: Container(
+          margin: const EdgeInsets.all(40),
+          child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Text(
+                  currentQuestion.text, // 6. Hiển thị câu hỏi hiện tại
+                  style: GoogleFonts.lato(
+                    fontSize: 24,
+                    color: const Color.fromARGB(255, 127, 219, 243),
+                    fontWeight: FontWeight.bold,
+                  ),
+                  textAlign: TextAlign.center,
                 ),
-                textAlign: TextAlign.center,
-              ),
-              const SizedBox(
-                height: 30,
-              ),
-              ...currentQuestion.getShuffledAnswers().map((answer) { // 7. Hiển thị các câu trả lời
-                return Padding(
-                    padding: const EdgeInsets.only(bottom: 8.0),
-                    child: AnswerButton(
-                        answerText: answer, onTap: (){
-                          answerQuestion(answer); // 8. Xử lý sự kiện chọn câu trả lời lưu câu trả lời và đem qua quiz.dart xử lý
-                    }));
-              }),
-            ]),
+                const SizedBox(
+                  height: 30,
+                ),
+                ...currentQuestion.getShuffledAnswers().map((answer) { // 7. Hiển thị các câu trả lời
+                  return Padding(
+                      padding: const EdgeInsets.only(bottom: 8.0),
+                      child: AnswerButton(
+                          answerText: answer, onTap: (){
+                            answerQuestion(answer); // 8. Xử lý sự kiện chọn câu trả lời lưu câu trả lời và đem qua quiz.dart xử lý
+                      }));
+                }),
+              ]),
+        ),
       ),
     );
   }
