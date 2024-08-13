@@ -14,6 +14,9 @@ class Quiz extends StatefulWidget {
 class _QuizState extends State<Quiz> {
   static const startAlignment = Alignment.topLeft;
   static const endAlignment = Alignment.bottomRight;
+  var selectedAnswers=[];
+
+
   var activeScreen =
       'start-screen'; //Biến này có kiểu Widget?, có thể là bất kỳ widget nào hoặc null.
   void switchScreen() {
@@ -22,6 +25,10 @@ class _QuizState extends State<Quiz> {
     });
   }
 
+  void chooseAnswer(String answer)
+  {
+    selectedAnswers.add(answer);
+  }
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -38,9 +45,10 @@ class _QuizState extends State<Quiz> {
           ], begin: endAlignment, end: startAlignment)),
           child: activeScreen == 'start-screen'
               ? StartScreen(startQuiz: switchScreen)
-              : const QuestionsScreen(),
+              : QuestionsScreen(onSelectAnswer: chooseAnswer,),
         ),
       ),
     );
   }
 }
+
