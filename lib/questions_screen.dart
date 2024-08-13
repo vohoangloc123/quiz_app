@@ -38,7 +38,7 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
                 currentQuestion.text, // 6. Hiển thị câu hỏi hiện tại
                 style: GoogleFonts.lato(
                   fontSize: 24,
-                  color: const Color.fromARGB(255, 127, 219, 243),
+                  color: const Color.fromARGB(255, 255, 255, 255),
                   fontWeight: FontWeight.bold,
                 ),
                 textAlign: TextAlign.center,
