@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:quiz_app/questions_screen.dart';
 import 'package:quiz_app/results_screen.dart';
 import 'package:quiz_app/start_screen.dart';

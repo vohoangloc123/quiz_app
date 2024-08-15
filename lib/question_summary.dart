@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class QuestionSummary extends StatelessWidget {
@@ -40,7 +39,7 @@ class QuestionSummary extends StatelessWidget {
                         ),
                         const SizedBox(height: 5),
                         Text(data['correct_answer'] as String,
-                          style: TextStyle(color: Colors.green),
+                          style: const TextStyle(color: Colors.green),
                         ),
                         Text(data['user_answer'] as String,
                         style: TextStyle(color: isCorrect?  Colors.blue: Colors.redAccent),),

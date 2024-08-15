@@ -1,7 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:quiz_app/question_summary.dart';
-
 import 'data/questions.dart';
 
 class ResultsScreen extends StatelessWidget {
@@ -40,9 +38,9 @@ class ResultsScreen extends StatelessWidget {
             QuestionSummary(summaryData: summaryData),
             const SizedBox(height: 30,),
             OutlinedButton.icon(
-                icon: Icon(
+                icon: const Icon(
                   Icons.refresh,
-                  color: const Color.fromARGB(255, 255, 255, 255),
+                  color: Color.fromARGB(255, 255, 255, 255),
                 ),
                 onPressed: onResetQuiz,
                 label: const Text('Restart Quiz!', style: TextStyle(color: Colors.white))),
